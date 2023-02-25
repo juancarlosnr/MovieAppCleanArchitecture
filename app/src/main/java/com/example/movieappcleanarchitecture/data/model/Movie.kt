@@ -14,6 +14,7 @@ data class MovieBody(
     var id:Int,
     var title:String,
     var original_title:String,
-    var poster_path:String
+    var poster_path:String,
+    var backdrop_path:String
 )
 

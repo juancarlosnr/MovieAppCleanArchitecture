@@ -24,8 +24,4 @@ class MovieAdapter(private var movieList: List<MovieBody>):RecyclerView.Adapter<
 
     override fun getItemCount(): Int = movieList.size
 
-    fun updateMovies( movieList: List<MovieBody>){
-        this.movieList = movieList
-        notifyDataSetChanged()
-    }
 }

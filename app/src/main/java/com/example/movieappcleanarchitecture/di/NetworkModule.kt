@@ -1,6 +1,8 @@
 package com.example.movieappcleanarchitecture.di
 
 import com.example.movieappcleanarchitecture.data.remote.MovieApiClient
+import com.example.movieappcleanarchitecture.data.remote.MovieDetailsApiClient
+import com.example.movieappcleanarchitecture.data.remote.MovieDetailsService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,5 +26,10 @@ object NetworkModule {
     @Provides
     fun provideMovieApiClient(retrofit: Retrofit):MovieApiClient{
         return retrofit.create(MovieApiClient::class.java)
+    }
+    @Singleton
+    @Provides
+    fun provideMovieDetailsApiClient(retrofit:Retrofit):MovieDetailsApiClient{
+        return retrofit.create(MovieDetailsApiClient::class.java)
     }
 }

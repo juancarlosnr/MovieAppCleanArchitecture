@@ -1,5 +1,6 @@
 package com.example.movieappcleanarchitecture.ui.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         binding.rvMovies.layoutManager = LinearLayoutManager(this)
         movieViewModel.movieModel.observe(this, Observer {
             binding.rvMovies.adapter = MovieAdapter(it)
+            Log.d("prueba", it.toString()
+            )
         })
         //Buscador películas
         binding.svMovies.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
