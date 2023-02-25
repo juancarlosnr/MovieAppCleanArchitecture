@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieappcleanarchitecture.ui.adapters.MovieAdapter
 import com.example.movieappcleanarchitecture.databinding.ActivityMainBinding
 import com.example.movieappcleanarchitecture.ui.viewmodel.MovieViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val movieViewModel: MovieViewModel by viewModels()
