@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieappcleanarchitecture.R
-import com.example.movieappcleanarchitecture.model.MovieBody
+import com.example.movieappcleanarchitecture.data.model.MovieBody
 
 
 class MovieAdapter(private var movieList: List<MovieBody>):RecyclerView.Adapter<MovieViewHolder>(){

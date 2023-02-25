@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        movieViewModel.getMovies()
+        movieViewModel.onCreate()
         movieViewModel.movieModel.observe(this, Observer {
             binding.rvMovies.layoutManager = LinearLayoutManager(this)
             binding.rvMovies.adapter = MovieAdapter(it)
