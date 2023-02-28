@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Movie(
     var page:Int,
-    @SerializedName("results")var movies:List<MovieBody>,
+    @SerializedName("results")var movies:List<MovieBody>,//Aqui iba movieBody solo
     var total_results:Int,
     var total_pages:Int
 )
@@ -14,7 +14,7 @@ data class MovieBody(
     var id:Int,
     var title:String,
     var original_title:String,
-    var poster_path:String,
-    var backdrop_path:String
+    var poster_path:String = "",
+
 )
 

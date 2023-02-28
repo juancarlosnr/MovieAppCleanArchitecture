@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //Cargamos los datos principales de las películas populares
-        movieViewModel.onCreate()
+        movieViewModel.onCreate(applicationContext)
         //Nos quedamos observando los datos para que si hay algún cambio se lo pase al recycler view
         binding.rvMovies.layoutManager = LinearLayoutManager(this)
         movieViewModel.movieModel.observe(this, Observer {
@@ -39,12 +39,12 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
             override fun onQueryTextChange(p0: String?): Boolean {
-                p0?.let {
+                /*p0?.let {
                     if(p0.isEmpty()){
                         movieViewModel.onCreate()
                     }
                     movieViewModel.getMovieByName(it)
-                }
+                }*/
                 return false
             }
         })

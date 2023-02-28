@@ -10,7 +10,7 @@ class MovieDetailsService @Inject constructor(private val api: MovieDetailsApiCl
     suspend fun getDetailsMovie(name:String): MovieBody {
         return withContext(Dispatchers.IO){
             val response = api.getDetailsMovie("movie/${name}?api_key=8acf57bf61daa24691dfb61c7f3c36cf")
-            response.body() ?: MovieBody(0,"","","", "")
+            response.body() ?: MovieBody(0,"","","")
         }
     }
 }
