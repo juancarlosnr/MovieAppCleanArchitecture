@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.movieappcleanarchitecture.data.model.MovieBody
 import com.example.movieappcleanarchitecture.domain.GetMovieByNameUseCase
 import com.example.movieappcleanarchitecture.domain.GetPopularMoviesUseCase
+import com.example.movieappcleanarchitecture.domain.InsertFavoriteMoviesUseCase
 import com.example.movieappcleanarchitecture.domain.model.MovieBodyItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -16,16 +17,17 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieViewModel @Inject constructor(
     private val getPopularMoviesUseCase: GetPopularMoviesUseCase,
-    private val getMovieByNameUseCase: GetMovieByNameUseCase
+    private val getMovieByNameUseCase: GetMovieByNameUseCase,
+    private val insertFavoriteMoviesUseCase: InsertFavoriteMoviesUseCase
 ) : ViewModel() {
     val movieModel = MutableLiveData<List<MovieBodyItem>>()
 
-    fun onCreate(context:Context) {
+    fun onCreate(context: Context) {
         viewModelScope.launch {
             val result = getPopularMoviesUseCase(context)
-            if(!result.isNullOrEmpty()){
+            if (!result.isNullOrEmpty()) {
                 movieModel.postValue(result)
-            }else{
+            } else {
                 movieModel.postValue(emptyList())
             }
 
@@ -37,10 +39,22 @@ class MovieViewModel @Inject constructor(
             val result = getMovieByNameUseCase(name)
             if (!result.isNullOrEmpty()) {
                 movieModel.postValue(result)
-            }else{
+            } else {
                 movieModel.postValue(emptyList())
             }
 
         }
     }
+
+    fun insertFavoriteMovie(movie: MovieBodyItem) {
+        viewModelScope.launch {
+            if (movie != null) {
+                insertFavoriteMoviesUseCase.invoke(movie)
+            } else {
+
+            }
+
+        }
+    }
+
 }

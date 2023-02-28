@@ -42,5 +42,17 @@
         app:layout_constraintVertical_bias="0.032"
         tools:text="Prueba" />
 
+    <Button
+        android:id="@+id/saveFavourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FAVORITO"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf= "@+id/tv_realTitle"
+        app:layout_constraintStart_toEndOf="@id/ivMovie"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
