@@ -16,4 +16,11 @@ class MovieFavoritesRepository @Inject constructor(private val movieDao: MovieDa
             return emptyList()
         }
     }
+    suspend fun deleteFavoriteMovie(id:Int){
+        if(id != null) {
+            movieDao.deleteFavoriteMovie(id)
+        }else{
+           Log.d("prueba", "No hay id")
+        }
+    }
 }
